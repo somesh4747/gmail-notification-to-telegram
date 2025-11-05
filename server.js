@@ -27,7 +27,7 @@ let isAuthenticated = false
 // notification on telegram
 const notificationTelegram = async (msg = 'test') => {
     const res = await fetch(
-        `https://api.telegram.org/bot8448084280:AAFVGK8o0_ai2I2ISE6J79S-FK20pjZOf4M/sendMessage?chat_id=5413143833&text=${msg}`
+        `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=5413143833&text=${msg}`
     )
     // console.log(res)
 }
