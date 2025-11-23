@@ -13,10 +13,13 @@ app.use(cors())
 app.use(json())
 
 // OAuth2 Configuration
+// Use OOB flow for VPS/headless environments (no redirect server needed)
+const redirectUri = 'urn:ietf:wg:oauth:2.0:oob'
+
 const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID,
     process.env.GOOGLE_CLIENT_SECRET,
-    'urn:ietf:wg:oauth:2.0:oob'
+    redirectUri
 )
 
 const TOKEN_PATH = join(__dirname, 'token.json')
